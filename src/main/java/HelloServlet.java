@@ -26,13 +26,15 @@ public class HelloServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter writer = response.getWriter();
         String id = request.getParameter("id");
-        if (id == null) {
-            String path = request.getContextPath() + "/NotFound";
-            response.sendRedirect(path);
-        }
+//        if (id == null) {
+//            String path = request.getContextPath() + "/NotFound";
+//            response.sendRedirect(path);
+//        }
 //        String name = request.getParameter("name");
 //        String age = request.getParameter("age");
-        String[] nums = request.getParameterValues("nums");
+        String message = getServletContext().getInitParameter("message");
+        response.setContentType("text/html");
+
         String name = request.getParameter("username");
         String age = request.getParameter("userage");
         String gender = request.getParameter("gender");
@@ -49,9 +51,10 @@ public class HelloServlet extends HttpServlet {
             writer.println("<p>Gender: " + gender + "</p>");
             writer.println("<p>Country: " + country + "</p>");
             writer.println("<h4>Courses</h4>");
+            writer.println("<h2>" + message + "</h2>");
+
             for (String course : courses)
                 writer.println("<li>" + course + "</li>");
-
             //----------
             // redirecting the request
 //            String path = "/index2.html";

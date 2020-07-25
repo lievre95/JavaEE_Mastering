@@ -23,7 +23,7 @@ public class HelloWorld extends HttpServlet {
         // Actual logic goes here.
         PrintWriter out = response.getWriter();
         out.println("<h1>Hello World via Servlet</h1>");
-        out.println("<p>"+ new Date().toString() +"</p>");
+        out.println("<p>" + new Date().toString() + "</p>");
     }
 
 }

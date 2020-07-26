@@ -23,6 +23,25 @@ public class HelloServlet extends HttpServlet {
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //getting session
+//        HttpSession session = request.getSession();
+//        //getting the object name
+//        String name2 = (String) session.getAttribute("name2");
+//        PrintWriter out = response.getWriter();
+        HttpSession session = request.getSession();
+        Person tom = (Person) session.getAttribute("person");
+        PrintWriter out = response.getWriter();
+        //supplementary
+        Enumeration keys = session.getAttributeNames();
+        while(keys.hasMoreElements()){
+            System.out.println((String) keys.nextElement());
+        }
+        //setting interval of inactivity
+//      session.setMaxInactiveInterval(60*60*24);//1 day
+        session.setMaxInactiveInterval(-1);// when the browser is closed
+        //deleting all data from session
+        session.invalidate();
+
         response.setContentType("text/html");
         PrintWriter writer = response.getWriter();
         String id = request.getParameter("id");
@@ -41,6 +60,27 @@ public class HelloServlet extends HttpServlet {
         String country = request.getParameter("country");
         String[] courses = request.getParameterValues("courses");
         try {
+//            //session check
+//            if(name2 == null){
+//                //setting the object with key
+//                session.setAttribute("name2","Tom Mayer");
+//                out.println("Session data are set");
+//            }else{
+//                out.println("Name: "+ name2);
+//                //deleting the object with key "name"
+//                session.removeAttribute("name2");
+//            }
+            //saving in session complex objects
+            if(tom ==null){
+                tom = new Person("Tom", 35);
+                out.println("Session data are set for complex object");
+
+            }else{
+                out.println("Name: " + tom.getName() + " ; Age: "+ tom.getAge());
+                session.removeAttribute("person");
+            }
+
+
 //            writer.println("<h2>Id:</h2> "+ id + " </h2>");
 //            writer.println("<h2> Name: " + name + "; Age: "+ age + "</h2>");
 //for(String i:nums){
@@ -55,6 +95,7 @@ public class HelloServlet extends HttpServlet {
 
             for (String course : courses)
                 writer.println("<li>" + course + "</li>");
+
             //----------
             // redirecting the request
 //            String path = "/index2.html";

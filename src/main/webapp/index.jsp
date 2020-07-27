@@ -22,5 +22,11 @@
  %>
 <h2>Now: <%=new Date()%></h2>
 
+  <jsp:include page="header.html"/>
+  <p>Main Content 1</p>
+  <p>Main Content 2</p>
+  <p>Main Content 3</p>
+  <jsp:include page="footer.jsp"/>
+
  </BODY>
 </HTML>

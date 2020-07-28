@@ -52,7 +52,14 @@
         <servlet-name>SetCookieServlet</servlet-name>
         <url-pattern>/set</url-pattern>
     </servlet-mapping>
-
+    <servlet>
+        <servlet-name>BasicData</servlet-name>
+        <servlet-class>BasicData</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BasicData</servlet-name>
+        <url-pattern>/basic</url-pattern>
+    </servlet-mapping>
     <!--Params-->
     <context-param>
     <param-name>message</param-name>

@@ -23,6 +23,11 @@ public class HelloServlet extends HttpServlet {
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        User tomik = new User("Tom", 26);
+        request.setAttribute("user",tomik);
+        getServletContext()
+                .getRequestDispatcher("/user.jsp")
+                .forward(request, response);
         //getting session
 //        HttpSession session = request.getSession();
 //        //getting the object name

@@ -17,6 +17,12 @@ public class BasicData extends HttpServlet {
         servletContext.setAttribute("name", "Jora");
         servletContext.setAttribute("age",44);
 
+        String[] users = new String[]{"Tom", "Bob", "Sam"};
+        request.setAttribute("users", users);
+
+        ArrayList<String> users2 = new ArrayList<String>();
+        Collections.addAll(users2, "Tom", "Bob", "Jora");
+        request.setAttribute("users2", users2);
 //        //data throw the session
 //        HttpSession session = request.getSession();
 //        session.setAttribute("name","newValue");

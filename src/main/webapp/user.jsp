@@ -11,7 +11,7 @@
     <title>User Java Bean Page</title>
 </head>
 <body>
-<p>Name: ${user.name}</p>
-<p>Age: ${user.age}</p>
+<p>Name: ${tomik.name}</p>
+<p>Age: ${tomik.age}</p>
 </body>
 </html>

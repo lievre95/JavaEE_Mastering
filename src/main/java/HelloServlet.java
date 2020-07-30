@@ -14,20 +14,23 @@ import javax.servlet.http.*;
 public class HelloServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Cookie cookie = new Cookie("userName","Jorj");
+        response.addCookie(cookie);
 
         String path = "/NotFound";
         ServletContext servletContext = getServletContext();
         RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher(path);
         requestDispatcher.forward(request, response);
+
+        User tomik = new User("Tom", 26);
+        request.setAttribute("user", tomik);
+        getServletContext()
+                .getRequestDispatcher("/user.jsp")
+                .forward(request, response);
     }
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        User tomik = new User("Tom", 26);
-        request.setAttribute("user",tomik);
-        getServletContext()
-                .getRequestDispatcher("/user.jsp")
-                .forward(request, response);
         //getting session
 //        HttpSession session = request.getSession();
 //        //getting the object name

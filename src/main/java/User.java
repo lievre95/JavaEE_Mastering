@@ -10,8 +10,8 @@ public class User implements Serializable {
         this.age = 0;
     }
     public User(String name, int age) {
-        this.name = "";
-        this.age = 0;
+        this.name = name;
+        this.age = age;
     }
 
     public void setName(String name) {

@@ -20,5 +20,46 @@
 <p>From cookie: ${coookie.userName.value}</p>
 <p> User-Agent: ${header["User-Agent"]}</p>
 <p> Host: ${header.host}</p>
+<c:forEach var="user" items="${users}">
+    <p>${user}</p>
+</c:forEach>
+<%--Looping--%>
+<ul>
+    <c:forEach var="user" items="{users}">
+        <li><c:out value="${user}"></li>
+    </c:out>
+    </c:forEach>
+</ul>
+
+<ul>
+    <p><c:forEach var="cook" items="${cook.value.name}"/></p>
+    <p><c:forEach var="cook" items="${cook.value.value}"/></p>
+</ul>
+<%--Conditions--%>
+<c:if test="${isVisible == true }">
+    <p>Visible</p>
+</c:if>
+<c:if test="${isVisible == false }">
+    <p>Invisible</p>
+<%--    Choose Tag--%>
+    <c:choose>
+        <c:when test="${val == 1}">
+            <p>Equals to 1</p>
+        </c:when>
+        <c:when test="${val == 2}">
+            <p>Equals to 2</p>
+        </c:when>
+        <c:otherwise>
+            <p>Undefined</p>
+        </c:otherwise>
+    </c:choose>
+<%--    Url tag--%>
+    <a href='<c:url value="/edit" />'> <c:url value="/edit" /></a>
+
+<%--    Redirect--%>
+    <c:if test="${val==null}">
+        <c:redirect url="/notfound.jsp"/>
+    </c:if>
+</c:if>
 </body>
 </html>

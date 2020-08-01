@@ -32,6 +32,14 @@
         <servlet-name>HelloServlet2</servlet-name>
         <url-pattern>/HelloServlet2</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>ProductServlet</servlet-name>
+        <servlet-class>ProductServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductServlet</servlet-name>
+        <url-pattern>/ProductServlet</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>WelcomePage</servlet-name>

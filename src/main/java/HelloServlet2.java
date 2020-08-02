@@ -21,10 +21,12 @@ public class HelloServlet2 extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        User tomik = new User("Tom", 26);
-        request.setAttribute("tomik", tomik);
-        getServletContext()
-                .getRequestDispatcher("/user.jsp")
-                .forward(request, response);
+//        User tomik = new User("Tom", 26);
+//        request.setAttribute("tomik", tomik);
+//        getServletContext()
+//                .getRequestDispatcher("/user.jsp")
+//                .forward(request, response);
+        request.setAttribute("messagejs","<script>alert('XSS atack')</script>");
+        getServletContext().getRequestDispatcher("/postuser2.jsp").forward(request, response);
     }
 }

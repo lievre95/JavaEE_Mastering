@@ -13,22 +13,5 @@
             <h:commandButton value="Submit" action="#{helloController.setMsg('JC')}" />
         </h:form>
 
-
-            <h1>TinyCalculator</h1>
-            <h:form>
-                <div>
-                    <h:outputLabel value="Param1:"/>
-                    <h:inputText value="#{tinyCalculator.param1}"/>
-                </div>
-                <div><h:outputLabel value="Param2:"/>
-                    <h:inputText value="#{tinyCalculator.param2}"/></div>
-                <div><h:commandButton value="Add" action="#{tinyCalculator.add()}"/>
-                    <h:commandButton value="Subtract" action="#{tinyCalculator.subtract()}"/>
-                    <h:commandButton value="Multiply" action="#{tinyCalculator.multiply()}"/>
-                    <h:commandButton value="Divide" action="#{tinyCalculator.divide()}"/>
-                </div>
-                <div><h:outputLabel value="Result:"/>
-                    <h:outputText value="#{tinyCalculator.result}"/></div>
-            </h:form>
     </h:body>
 </h:html>

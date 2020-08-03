@@ -45,12 +45,12 @@ public class TinyCalculator {
     }
 
     public String multiply() {
-        _result = _param1 + _param2;
+        _result = _param1 * _param2;
         return "";
     }
 
     public String divide() {
-        _result = _param1 + _param2;
+        _result = _param1 / _param2;
 
     return "";
     }

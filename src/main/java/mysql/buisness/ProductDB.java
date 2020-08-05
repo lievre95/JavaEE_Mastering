@@ -34,7 +34,7 @@ public class ProductDB {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
             try (Connection conn = DriverManager.getConnection(url, username, password)) {
-                String sql = "SELECT * FROM products WHERE id = >";
+                String sql = "SELECT * FROM products WHERE id = ?";
                 try (PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
                     preparedStatement.setInt(1, id);
                     ResultSet resultSet = preparedStatement.executeQuery();
@@ -60,7 +60,7 @@ public class ProductDB {
                 String sql = "INSERT INTO products(name, price) VALUES (?,?)";
                 try (PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
                     preparedStatement.setString(1, product.getName());
-                    preparedStatement.setInt(1, product.getPrice());
+                    preparedStatement.setInt(2, product.getPrice());
                     return preparedStatement.executeUpdate();
                 }
             }
@@ -78,8 +78,8 @@ public class ProductDB {
                 String sql = "UPDATE products SET name = ?, price = ?, WHERE id =?";
                 try (PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
                     preparedStatement.setString(1, product.getName());
-                    preparedStatement.setInt(1, product.getPrice());
-                    preparedStatement.setInt(1, product.getId());
+                    preparedStatement.setInt(2, product.getPrice());
+                    preparedStatement.setInt(3, product.getId());
                     return preparedStatement.executeUpdate();
                 }
             }
@@ -90,14 +90,14 @@ public class ProductDB {
 
     }
 
-    public static int delete(Product product) {
+    public static int delete(int product) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
 
             try (Connection conn = DriverManager.getConnection(url, username, password)) {
                 String sql = "DELETE FROM products WHERE id =?";
                 try (PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
-                    preparedStatement.setInt(1, product.getId());
+//                    preparedStatement.setInt(1, product.getId());
                     return preparedStatement.executeUpdate();
                 }
             }

@@ -3,6 +3,7 @@ import javax.enterprise.context.RequestScoped;
 @Named
 @RequestScoped
 public class TinyCalculator {
+    //http://localhost:8080/test/faces/index.xhtml
     public TinyCalculator() {
     }
 

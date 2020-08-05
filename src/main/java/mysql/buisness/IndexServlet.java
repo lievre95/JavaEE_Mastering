@@ -19,7 +19,7 @@ public class IndexServlet extends HttpServlet {
         ArrayList<Product> products = ProductDB.select();
         request.setAttribute("products", products);
 
-        getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/index3.jsp").forward(request, response);
     }
 
 }

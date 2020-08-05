@@ -76,6 +76,24 @@
         <servlet-name>BasicData</servlet-name>
         <url-pattern>/basic</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>CreateServlet</servlet-name>
+        <servlet-class>mysql.buisness.CreateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateServlet</servlet-name>
+        <url-pattern>/CreateServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>IndexServlet</servlet-name>
+        <servlet-class>mysql.buisness.IndexServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>IndexServlet</servlet-name>
+        <url-pattern>/IndexServlet</url-pattern>
+    </servlet-mapping>
+
     <!--Params-->
     <context-param>
     <param-name>message</param-name>

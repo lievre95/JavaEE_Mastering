@@ -17,9 +17,9 @@
     <c:forEach var="product" items="${products}">
         <tr>
             <td>${product.name}</td>
-            <td>${product.name}</td>
+            <td>${product.price}</td>
             <td>
-                <a href='<c:url value="/edit?id={product.id}"/>'> Edit </a> |
+                <a href='<c:url value="/edit?id=${product.id}" />'>Edit</a> |
                 <form method="post" action='<c:url value="/delete"/>' style="display:inline;">
                     <input type="hidden" name="id" value="${product.id}">
                     <input type="submit" value="Delete">

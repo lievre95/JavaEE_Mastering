@@ -21,7 +21,7 @@ public class ProductServlet extends HttpServlet {
         try{
             String url = "jdbc:mysql://localhost/productdb?serverTimezone=UTC&useSSL=false";
             String username = "root";
-            String password = "gg";
+            String password = "2HintRoot#";
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
             try (Connection conn = DriverManager.getConnection(url, username, password)){
 

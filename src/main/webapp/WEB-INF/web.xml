@@ -51,7 +51,7 @@
     <servlet-mapping>
         <servlet-name>WelcomePage</servlet-name>
         <url-pattern>/welcome</url-pattern>
-      </servlet-mapping>
+    </servlet-mapping>
     <servlet>
         <servlet-name>ServletError</servlet-name>
         <servlet-class>ServletError</servlet-class>
@@ -78,7 +78,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>CreateServlet</servlet-name>
-        <servlet-class>mysql.buisness.CreateServlet</servlet-class>
+        <servlet-class>mysql.business.CreateServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CreateServlet</servlet-name>
@@ -87,17 +87,34 @@
 
     <servlet>
         <servlet-name>IndexServlet</servlet-name>
-        <servlet-class>mysql.buisness.IndexServlet</servlet-class>
+        <servlet-class>mysql.business.IndexServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>IndexServlet</servlet-name>
         <url-pattern>/IndexServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>EditServlet</servlet-name>
+        <servlet-class>mysql.business.EditServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditServlet</servlet-name>
+        <url-pattern>/EditServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteServlet</servlet-name>
+        <servlet-class>mysql.business.DeleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteServlet</servlet-name>
+        <url-pattern>/DeleteServlet</url-pattern>
+    </servlet-mapping>
     <!--Params-->
     <context-param>
-    <param-name>message</param-name>
-    <param-value>Hello Params</param-value>
+        <param-name>message</param-name>
+        <param-value>Hello Params</param-value>
     </context-param>
 
     <!--Error processing-->

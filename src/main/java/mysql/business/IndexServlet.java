@@ -1,4 +1,4 @@
-package mysql.buisness;
+package mysql.business;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,17 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import mysql.buisness.Product;
-import mysql.buisness.ProductDB;
-
-@WebServlet("/")
+@WebServlet("/index3")
 public class IndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+        throws ServletException, IOException {
         ArrayList<Product> products = ProductDB.select();
         request.setAttribute("products", products);
 
         getServletContext().getRequestDispatcher("/index3.jsp").forward(request, response);
     }
-
 }

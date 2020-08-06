@@ -1,5 +1,4 @@
-package mysql.buisness;
-
+package mysql.business;
 import java.util.ArrayList;
 import java.sql.*;
 
@@ -45,7 +44,6 @@ public class ProductDB {
                         product = new Product(prodId, name, price);
                     }
                 }
-
             }
         } catch (Exception ex) {
             System.out.println(ex);
@@ -64,8 +62,8 @@ public class ProductDB {
                     return preparedStatement.executeUpdate();
                 }
             }
-
-        } catch (Exception ex) {
+        }
+        catch(Exception ex){
             System.out.println(ex);
         }
         return 0;
@@ -75,7 +73,7 @@ public class ProductDB {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
             try (Connection conn = DriverManager.getConnection(url, username, password)) {
-                String sql = "UPDATE products SET name = ?, price = ?, WHERE id =?";
+                String sql = "UPDATE products SET name = ?, price = ? WHERE id = ?";
                 try (PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
                     preparedStatement.setString(1, product.getName());
                     preparedStatement.setInt(2, product.getPrice());
@@ -87,17 +85,16 @@ public class ProductDB {
             System.out.println(ex);
         }
         return 0;
-
     }
 
-    public static int delete(int product) {
+    public static int delete(int id) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
 
             try (Connection conn = DriverManager.getConnection(url, username, password)) {
                 String sql = "DELETE FROM products WHERE id =?";
                 try (PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
-//                    preparedStatement.setInt(1, product.getId());
+                    preparedStatement.setInt(1, id);
                     return preparedStatement.executeUpdate();
                 }
             }
@@ -105,6 +102,5 @@ public class ProductDB {
             System.out.println(ex);
         }
         return 0;
-
     }
 }

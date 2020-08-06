@@ -1,4 +1,4 @@
-package mysql.buisness;
+package mysql.business;
 
 import java.io.Serializable;
 
@@ -10,7 +10,6 @@ public class Product implements Serializable {
     private int price;
 
     public Product(){}
-
     public Product(String name,int price){
         this.name = name;
         this.price= price;
@@ -32,7 +31,8 @@ public class Product implements Serializable {
     public int getPrice(){
         return price;
     }
-    public void setPrice(){
+
+    public void setPrice(int price) {
         this.price = price;
     }
 }
